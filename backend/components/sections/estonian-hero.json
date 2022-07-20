@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_sections_estonian_heroes",
+  "info": {
+    "name": "EstonianHero",
+    "icon": "window-restore"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "background": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": ["images"],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "donationBox": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.estonian-donation-box"
+    }
+  }
+}

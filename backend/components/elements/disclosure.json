@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_elements_disclosures",
+  "info": {
+    "name": "Disclosure",
+    "icon": "angle-down"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "richtext"
+    }
+  }
+}

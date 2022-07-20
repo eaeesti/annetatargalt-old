@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recurring_donations",
+  "info": {
+    "name": "RecurringDonations",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "amount": {
+      "type": "decimal",
+      "required": true,
+      "min": 1
+    },
+    "email": {
+      "type": "email"
+    },
+    "currency": {
+      "type": "string",
+      "required": true,
+      "default": "EUR"
+    },
+    "idCode": {
+      "type": "string",
+      "regex": "^([1-6]\\d{2}[0-1]\\d[0-3]\\d{5})?$",
+      "required": true
+    },
+    "firstName": {
+      "type": "string",
+      "required": false
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "bank": {
+      "type": "string"
+    },
+    "iban": {
+      "type": "string"
+    },
+    "comment": {
+      "type": "text"
+    },
+    "companyName": {
+      "type": "string"
+    },
+    "companyCode": {
+      "type": "string"
+    }
+  }
+}

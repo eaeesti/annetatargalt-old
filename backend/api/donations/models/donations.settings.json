@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "donations",
+  "info": {
+    "name": "Donations",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "amount": {
+      "type": "decimal",
+      "required": true,
+      "min": 1
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "finalized": {
+      "type": "boolean",
+      "default": false,
+      "required": true,
+      "private": true
+    },
+    "currency": {
+      "type": "string",
+      "default": "EUR",
+      "required": true,
+      "private": false
+    },
+    "idCode": {
+      "type": "string",
+      "regex": "^([1-6]\\d{2}[0-1]\\d[0-3]\\d{5})?$",
+      "required": true
+    },
+    "firstName": {
+      "type": "string",
+      "required": false
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "paymentMethod": {
+      "type": "string"
+    },
+    "iban": {
+      "type": "string"
+    },
+    "comment": {
+      "type": "text"
+    },
+    "companyName": {
+      "type": "string"
+    },
+    "companyCode": {
+      "type": "string"
+    },
+    "organization_donations": {
+      "via": "donation",
+      "collection": "organization-donations"
+    }
+  }
+}

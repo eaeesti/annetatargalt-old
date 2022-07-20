@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_sections_endorsements",
+  "info": {
+    "name": "Endorsements",
+    "icon": "users",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "endorsements": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.endorsement"
+    }
+  }
+}

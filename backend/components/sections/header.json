@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_sections_headers",
+  "info": {
+    "name": "Header",
+    "icon": "feather-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "richtext"
+    }
+  }
+}

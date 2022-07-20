@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_elements_bank_icons",
+  "info": {
+    "name": "bankIcon",
+    "icon": "piggy-bank",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "icon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "instructions": {
+      "type": "richtext"
+    }
+  }
+}

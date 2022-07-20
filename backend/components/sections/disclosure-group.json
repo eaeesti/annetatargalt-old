@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_disclosure_groups",
+  "info": {
+    "name": "DisclosureGroup",
+    "icon": "file-download",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "disclosures": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.disclosure"
+    }
+  }
+}

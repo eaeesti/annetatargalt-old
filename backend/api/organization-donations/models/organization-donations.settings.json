@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "organization_donations",
+  "info": {
+    "name": "OrganizationDonations",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "organization": {
+      "via": "organization_donations",
+      "model": "organization"
+    },
+    "donation": {
+      "model": "donations",
+      "via": "organization_donations"
+    },
+    "proportion": {
+      "type": "decimal"
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "forwarded": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

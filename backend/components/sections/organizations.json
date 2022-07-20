@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_sections_organizations",
+  "info": {
+    "name": "Organizations",
+    "icon": "heart"
+  },
+  "options": {},
+  "attributes": {
+    "organizations": {
+      "collection": "organization"
+    }
+  }
+}

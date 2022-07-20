@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_elements_endorsements",
+  "info": {
+    "name": "Endorsement",
+    "icon": "user",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "comment": {
+      "type": "text"
+    }
+  }
+}

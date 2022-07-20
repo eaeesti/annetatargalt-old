@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/manual-donations",
+      "handler": "manual-donations.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/manual-donations/count",
+      "handler": "manual-donations.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/manual-donations/:id",
+      "handler": "manual-donations.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/manual-donations",
+      "handler": "manual-donations.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/manual-donations/:id",
+      "handler": "manual-donations.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/manual-donations/:id",
+      "handler": "manual-donations.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_sections_thank_you_headers",
+  "info": {
+    "name": "ThankYouHeader",
+    "icon": "smile-beam",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "message1": {
+      "type": "richtext"
+    },
+    "facebookShareText": {
+      "type": "string"
+    },
+    "message2": {
+      "type": "richtext"
+    },
+    "facebookShareLink": {
+      "type": "string",
+      "default": "https://www.facebook.com/sharer/sharer.php?u=https://annetatargalt.ee/&p=Facebook%20share%20popup"
+    },
+    "message3": {
+      "type": "richtext"
+    },
+    "twitterShareText": {
+      "type": "string"
+    },
+    "twitterShareLink": {
+      "type": "string",
+      "default": "https://twitter.com/intent/tweet?hashtags=annetatargalt&url=https://annetatargalt.ee&text=Anneta sinna, kus aitad kõige rohkem!"
+    }
+  }
+}

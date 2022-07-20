@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_sections_fun_facts",
+  "info": {
+    "name": "FunFact",
+    "icon": "lightbulb",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "toptext": {
+      "type": "string"
+    },
+    "bigtext": {
+      "type": "string"
+    },
+    "bottomtext": {
+      "type": "string"
+    },
+    "source_prelink": {
+      "type": "string"
+    },
+    "source_postlink": {
+      "type": "string"
+    },
+    "source_link": {
+      "type": "string"
+    },
+    "source_linktext": {
+      "type": "string"
+    }
+  }
+}

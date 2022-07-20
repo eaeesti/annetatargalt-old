@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "email_templates",
+  "info": {
+    "name": "EmailTemplate"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "subject": {
+      "type": "string"
+    },
+    "text": {
+      "type": "text"
+    },
+    "html": {
+      "type": "text"
+    }
+  }
+}

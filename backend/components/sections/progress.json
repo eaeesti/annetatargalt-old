@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_sections_progresses",
+  "info": {
+    "name": "Progress",
+    "icon": "chart-line",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "outOf": {
+      "type": "string"
+    },
+    "donated": {
+      "type": "string"
+    },
+    "goals": {
+      "type": "json",
+      "required": false
+    },
+    "bottomText": {
+      "type": "richtext"
+    }
+  }
+}

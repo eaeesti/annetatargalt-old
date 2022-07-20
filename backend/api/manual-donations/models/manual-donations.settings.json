@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "manual_donations",
+  "info": {
+    "name": "ManualDonations",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "recurring_donation": {
+      "model": "recurring-donations"
+    },
+    "datetime": {
+      "type": "datetime"
+    },
+    "amount": {
+      "type": "decimal",
+      "required": true
+    },
+    "iban": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "string",
+      "default": "EUR",
+      "required": true
+    },
+    "idCode": {
+      "type": "string",
+      "regex": "(^[1-6]\\d{2}[0-1]\\d[0-3]\\d{5}$)|^$"
+    }
+  }
+}

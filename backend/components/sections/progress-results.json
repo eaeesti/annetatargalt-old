@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_sections_progress_results",
+  "info": {
+    "name": "ProgressResults",
+    "icon": "chart-bar",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    }
+  }
+}

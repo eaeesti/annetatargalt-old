@@ -1,0 +1,100 @@
+{
+  "collectionName": "components_elements_estonian_donation_boxes",
+  "info": {
+    "name": "EstonianDonationBox",
+    "icon": "money-bill-wave-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "amount1": {
+      "type": "integer"
+    },
+    "amount2": {
+      "type": "integer"
+    },
+    "amount3": {
+      "type": "integer"
+    },
+    "singleDonationText": {
+      "type": "string"
+    },
+    "recurringDonationText": {
+      "type": "string"
+    },
+    "otherButtonText": {
+      "type": "string"
+    },
+    "otherButtonInputText": {
+      "type": "string"
+    },
+    "donationButtonText": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "amountLabel": {
+      "type": "string"
+    },
+    "donationTypeLabel": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "idcode": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "banks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.bank-icon"
+    },
+    "bank": {
+      "type": "string"
+    },
+    "idCodeTooltip": {
+      "type": "string"
+    },
+    "companyNameText": {
+      "type": "string"
+    },
+    "companyCodeText": {
+      "type": "string"
+    },
+    "donateAsCompanyText": {
+      "type": "string"
+    },
+    "termsText": {
+      "type": "richtext"
+    },
+    "organizations": {
+      "collection": "organization"
+    },
+    "organization_types": {
+      "collection": "organization-type"
+    },
+    "chooseOrganizationsText": {
+      "type": "string"
+    },
+    "letExpertsChooseText": {
+      "type": "string"
+    },
+    "readMoreText": {
+      "type": "richtext"
+    },
+    "nextButtonText": {
+      "type": "string"
+    }
+  }
+}

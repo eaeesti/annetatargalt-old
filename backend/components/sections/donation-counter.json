@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sections_donation_counters",
+  "info": {
+    "name": "DonationCounter",
+    "icon": "sort-numeric-up",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "textBefore": {
+      "type": "string"
+    },
+    "textAfter": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "bottomText": {
+      "type": "richtext"
+    }
+  }
+}

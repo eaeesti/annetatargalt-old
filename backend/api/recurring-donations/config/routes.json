@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/recurring-donations",
+      "handler": "recurring-donations.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/recurring-donations/count",
+      "handler": "recurring-donations.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/recurring-donations/:id",
+      "handler": "recurring-donations.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/recurring-donations",
+      "handler": "recurring-donations.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/recurring-donations/:id",
+      "handler": "recurring-donations.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/recurring-donations/:id",
+      "handler": "recurring-donations.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
