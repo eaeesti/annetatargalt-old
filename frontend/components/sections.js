@@ -15,6 +15,7 @@ import Progress from "./sections/progress";
 import ProgressResults from "./sections/progress-results";
 import DonationCounter from "./sections/donation-counter";
 import Organizations from "./sections/organizations";
+import ContactSection from "./sections/contact_section";
 
 // Map Strapi sections to section components
 const sectionComponents = {
@@ -34,6 +35,7 @@ const sectionComponents = {
   "sections.progress-results": ProgressResults,
   "sections.donation-counter": DonationCounter,
   "sections.organizations": Organizations,
+  "sections.contact-section": ContactSection,
 };
 
 // Display a section individually
@@ -51,18 +53,13 @@ const Section = ({ sectionData }) => {
 
 const PreviewModeBanner = () => {
   const router = useRouter();
-  const exitURL = `/api/exit-preview?redirect=${encodeURIComponent(
-    router.asPath
-  )}`;
+  const exitURL = `/api/exit-preview?redirect=${encodeURIComponent(router.asPath)}`;
 
   return (
     <div className="py-4 font-semibold tracking-wide text-red-100 uppercase bg-red-600">
       <div className="container">
         Preview mode is on.{" "}
-        <a
-          className="underline"
-          href={`/api/exit-preview?redirect=${router.asPath}`}
-        >
+        <a className="underline" href={`/api/exit-preview?redirect=${router.asPath}`}>
           Turn off
         </a>
       </div>
@@ -78,10 +75,7 @@ const Sections = ({ sections, preview }) => {
       {preview && <PreviewModeBanner />}
       {/* Show the actual sections */}
       {sections.map((section) => (
-        <Section
-          sectionData={section}
-          key={`${section.__component}${section.id}`}
-        />
+        <Section sectionData={section} key={`${section.__component}${section.id}`} />
       ))}
     </div>
   );

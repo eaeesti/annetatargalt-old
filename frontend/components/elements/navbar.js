@@ -5,12 +5,8 @@ import { useRouter } from "next/router";
 import { Transition } from "@headlessui/react";
 
 import { getButtonAppearance } from "utils/button";
-import {
-  mediaPropTypes,
-  linkPropTypes,
-  buttonLinkPropTypes,
-} from "utils/types";
-import { MenuIcon, XIcon } from "@heroicons/react/solid";
+import { mediaPropTypes, linkPropTypes, buttonLinkPropTypes } from "utils/types";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MobileNavMenu from "./mobile-nav-menu";
 import ButtonLink from "./button-link";
 import NextImage from "./image";
@@ -57,10 +53,7 @@ const Navbar = ({ navbar, pageContext }) => {
   return (
     <>
       {/* The actual navbar */}
-      <nav
-        id="navbar"
-        className="fixed z-50 w-full text-white transition-all sm:pt-8"
-      >
+      <nav id="navbar" className="fixed z-50 w-full text-white transition-all sm:pt-8">
         <div className="container flex flex-row justify-between items-center">
           {/* Content aligned to the left */}
           <div className="flex flex-row items-center">
@@ -71,12 +64,7 @@ const Navbar = ({ navbar, pageContext }) => {
                 onClick={() => setMobileMenuIsShown(false)}
               >
                 <span className="sr-only">Logo home button</span>
-                <NextImage
-                  width="120"
-                  height="33"
-                  media={navbar.logo}
-                  unoptimized
-                />
+                <NextImage width="120" height="33" media={navbar.logo} unoptimized />
               </a>
             </Link>
             {/* List of links on desktop */}
@@ -84,9 +72,7 @@ const Navbar = ({ navbar, pageContext }) => {
               {navbar.links.map((navLink) => (
                 <li key={navLink.id}>
                   <CustomLink link={navLink} locale={router.locale}>
-                    <div className="px-4 py-6 text-center transition-opacity hover:opacity-70">
-                      {navLink.text}
-                    </div>
+                    <div className="px-4 py-6 text-center transition-opacity hover:opacity-70">{navLink.text}</div>
                   </CustomLink>
                 </li>
               ))}
@@ -106,7 +92,7 @@ const Navbar = ({ navbar, pageContext }) => {
                 className="block p-4 transition-opacity hover:opacity-70 lg:hidden"
                 aria-label="Menu button"
               >
-                <MenuIcon className="w-8 h-8 text-white"></MenuIcon>
+                <Bars3Icon className="w-8 h-8 text-white"></Bars3Icon>
               </button>
             )}
             {/* Close button when menu is open */}
@@ -116,7 +102,7 @@ const Navbar = ({ navbar, pageContext }) => {
                 className="block p-4 transition-opacity hover:opacity-60 lg:hidden"
                 aria-label="Close menu button"
               >
-                <XIcon className="w-8 h-8 text-white"></XIcon>
+                <XMarkIcon className="w-8 h-8 text-white"></XMarkIcon>
               </button>
             )}
             {/* Locale Switch Desktop */}
@@ -149,10 +135,7 @@ const Navbar = ({ navbar, pageContext }) => {
         leaveFrom="transform scale-y-100 opacity-100"
         leaveTo="transform scale-y-0 opacity-0"
       >
-        <MobileNavMenu
-          navbar={navbar}
-          closeSelf={() => setMobileMenuIsShown(false)}
-        />
+        <MobileNavMenu navbar={navbar} closeSelf={() => setMobileMenuIsShown(false)} />
       </Transition>
     </>
   );

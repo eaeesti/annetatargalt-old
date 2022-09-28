@@ -53,7 +53,8 @@
         "sections.progress-results",
         "sections.donation-counter",
         "sections.estonian-hero",
-        "sections.organizations"
+        "sections.organizations",
+        "sections.contact-section"
       ],
       "pluginOptions": {
         "i18n": {

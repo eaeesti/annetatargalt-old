@@ -1,0 +1,44 @@
+{
+  "kind": "singleType",
+  "collectionName": "emails",
+  "info": {
+    "name": "Emails",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "contactFormSubmissionRecipients": {
+      "type": "text",
+      "pluginOptions": {}
+    },
+    "anonymousName": {
+      "type": "string",
+      "pluginOptions": {}
+    },
+    "contactFormSubmissionTitle": {
+      "type": "string",
+      "pluginOptions": {}
+    },
+    "contactFormSubmissionTemplate": {
+      "type": "text",
+      "pluginOptions": {}
+    },
+    "contactFormSubmissionTemplateHtml": {
+      "type": "text",
+      "pluginOptions": {}
+    },
+    "automatedEmailsReplyToAddress": {
+      "type": "string",
+      "pluginOptions": {}
+    },
+    "anonymousEmail": {
+      "type": "string",
+      "pluginOptions": {}
+    }
+  }
+}

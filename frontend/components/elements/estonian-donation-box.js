@@ -33,8 +33,7 @@ const EstonianDonationBox = ({ data }) => {
   let [step, setStep] = useState(1);
 
   const organizations = [...data.organizations].sort((a, b) => {
-    if (a.order !== undefined && b.order !== undefined && a.order !== b.order)
-      return a.order - b.order;
+    if (a.order !== undefined && b.order !== undefined && a.order !== b.order) return a.order - b.order;
     return a.id - b.id;
   });
 
@@ -43,8 +42,7 @@ const EstonianDonationBox = ({ data }) => {
 
   function generateProportions() {
     const defaultProportions = organizations.reduce(
-      (obj, org) =>
-        Object.assign(obj, { [org.name]: { proportion: 0, locked: false } }),
+      (obj, org) => Object.assign(obj, { [org.name]: { proportion: 0, locked: false } }),
       {}
     );
     const firstOrganization = organizations[0].name;
@@ -52,11 +50,7 @@ const EstonianDonationBox = ({ data }) => {
     return defaultProportions;
   }
 
-  function calculateProportions(
-    oldProportions,
-    targetOrganization,
-    proportion
-  ) {
+  function calculateProportions(oldProportions, targetOrganization, proportion) {
     const newProportions = { ...oldProportions };
 
     let lockedOrganizations = [];
@@ -89,8 +83,7 @@ const EstonianDonationBox = ({ data }) => {
       locked: false,
       proportion: newProportion,
     };
-    const targetDelta =
-      Number(oldProportions[targetOrganization].proportion) - newProportion;
+    const targetDelta = Number(oldProportions[targetOrganization].proportion) - newProportion;
 
     if (targetDelta === 0) {
       newProportions[targetOrganization] = {
@@ -103,15 +96,10 @@ const EstonianDonationBox = ({ data }) => {
     const adder = targetDelta / Math.abs(targetDelta);
     for (let i = 0; i < Math.abs(targetDelta); i++) {
       let organizationsToChange;
-      organizationsToChange = unlockedOrganizations.filter(
-        (org) => newProportions[org].proportion > 0
-      );
-      if (organizationsToChange.length === 0 && adder >= 0)
-        organizationsToChange = unlockedOrganizations;
-      let organizationToChangeIndex =
-        (totalUnlocked - (adder < 0)) % organizationsToChange.length;
-      const organizationToChange =
-        organizationsToChange[organizationToChangeIndex];
+      organizationsToChange = unlockedOrganizations.filter((org) => newProportions[org].proportion > 0);
+      if (organizationsToChange.length === 0 && adder >= 0) organizationsToChange = unlockedOrganizations;
+      let organizationToChangeIndex = (totalUnlocked - (adder < 0)) % organizationsToChange.length;
+      const organizationToChange = organizationsToChange[organizationToChangeIndex];
       const oldProportion = newProportions[organizationToChange].proportion;
       newProportions[organizationToChange] = {
         locked: false,
@@ -124,9 +112,7 @@ const EstonianDonationBox = ({ data }) => {
   }
 
   function setCalculatedProportions(targetOrganization, proportion) {
-    setProportions(
-      calculateProportions(proportions, targetOrganization, proportion)
-    );
+    setProportions(calculateProportions(proportions, targetOrganization, proportion));
   }
 
   function toggleLock(organization) {
@@ -147,18 +133,12 @@ const EstonianDonationBox = ({ data }) => {
   }
 
   function proportionsAddUpTo100() {
-    const sum = Object.values(proportions).reduce(
-      (prev, prop) => prev + prop.proportion,
-      0
-    );
+    const sum = Object.values(proportions).reduce((prev, prop) => prev + prop.proportion, 0);
     return sum === 100;
   }
 
   function proportionsAsPairs() {
-    return Object.entries(proportions).map(([organization, value]) => [
-      organization,
-      value.proportion,
-    ]);
+    return Object.entries(proportions).map(([organization, value]) => [organization, value.proportion]);
   }
 
   function chooseAmount(value) {
@@ -334,19 +314,17 @@ const EstonianDonationBox = ({ data }) => {
     setLoading(true);
 
     try {
-      console.log("Making donation with data:", body);
+      // console.log("Making donation with data:", body);
       const response = await fetchAPI("/donate", {
         method: "POST",
         body: JSON.stringify(body),
       });
-      console.log(response);
+      // console.log(response);
       if (response.success) {
         // If bank has instructions, open in new tab instead
         if (
           donationType == "recurring" &&
-          data.banks.find(
-            (bankIcon) => bankIcon.name === bank && bankIcon.instructions
-          )
+          data.banks.find((bankIcon) => bankIcon.name === bank && bankIcon.instructions)
         ) {
           window.open(response.paymentURL);
         } else {
@@ -357,19 +335,16 @@ const EstonianDonationBox = ({ data }) => {
       }
     } catch (err) {
       console.error(err);
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
   useEffect(() => {
     makeDonation();
   }, [clickCount]);
 
   return (
-    <div
-      id="donation"
-      className="absolute p-8 w-full bg-white rounded-2xl shadow-2xl text-primary-900"
-    >
+    <div id="donation" className="absolute p-8 w-full bg-white rounded-2xl shadow-2xl text-primary-900">
       <form
         className="block relative"
         onSubmit={(event) => {
@@ -379,9 +354,7 @@ const EstonianDonationBox = ({ data }) => {
       >
         {step === 1 && (
           <div id="step1" className="flex flex-col space-y-4">
-            <h1 className="mb-2 text-3xl font-bold leading-snug">
-              {data.title}
-            </h1>
+            <h1 className="mb-2 text-3xl font-bold leading-snug">{data.title}</h1>
             <div className="flex items-center space-x-6">
               <label className="inline-flex items-center cursor-pointer">
                 <input
@@ -407,14 +380,8 @@ const EstonianDonationBox = ({ data }) => {
               </label>
             </div>
             <div className="flex justify-evenly items-center space-x-4 w-full">
-              <RadioGroup
-                value={amountChoice}
-                onChange={chooseAmount}
-                className="w-full"
-              >
-                <RadioGroup.Label className="sr-only">
-                  {data.amountLabel}
-                </RadioGroup.Label>
+              <RadioGroup value={amountChoice} onChange={chooseAmount} className="w-full">
+                <RadioGroup.Label className="sr-only">{data.amountLabel}</RadioGroup.Label>
                 <div className="flex flex-row space-x-4 w-full">
                   {amountChoices.map((amountChoice) => (
                     <RadioGroup.Option
@@ -422,11 +389,7 @@ const EstonianDonationBox = ({ data }) => {
                       value={amountChoice}
                       aria-label={`Switch amount to ${amountChoice}`}
                       className={({ active, checked }) =>
-                        `${
-                          checked
-                            ? "ring-primary-700 ring-2"
-                            : "ring-gray-300 ring-1"
-                        }
+                        `${checked ? "ring-primary-700 ring-2" : "ring-gray-300 ring-1"}
                     p-3 text-center rounded-lg cursor-pointer select-none w-full hover:bg-gray-100 focus:ring-3`
                       }
                     >
@@ -438,9 +401,7 @@ const EstonianDonationBox = ({ data }) => {
             </div>
             <div
               id="otherAmountInputContainer"
-              className={`${
-                amountChoice === data.otherButtonText ? "block" : "hidden"
-              } flex flex-row`}
+              className={`${amountChoice === data.otherButtonText ? "block" : "hidden"} flex flex-row`}
             >
               <label htmlFor="otherAmountInput" className="sr-only">
                 {data.otherButtonInputText}
@@ -581,46 +542,27 @@ const EstonianDonationBox = ({ data }) => {
             {donationType === "recurring" && (
               <div className="flex flex-col space-y-4">
                 <RadioGroup value={bank} onChange={setBank} className="w-full">
-                  <RadioGroup.Label className="sr-only">
-                    {data.bank}
-                  </RadioGroup.Label>
-                  <div
-                    id="bankSelection"
-                    className="grid grid-cols-3 gap-4 w-full"
-                  >
+                  <RadioGroup.Label className="sr-only">{data.bank}</RadioGroup.Label>
+                  <div id="bankSelection" className="grid grid-cols-3 gap-4 w-full">
                     {data.banks.map((bankIcon) => (
                       <RadioGroup.Option
                         key={bankIcon.name}
                         value={bankIcon.name}
                         aria-label={`Switch bank to ${bankIcon.name}`}
                         className={({ active, checked }) =>
-                          `${
-                            checked
-                              ? "ring-primary-700 ring-2"
-                              : "ring-1 ring-gray-300"
-                          }
+                          `${checked ? "ring-primary-700 ring-2" : "ring-1 ring-gray-300"}
                     text-center rounded-lg cursor-pointer select-none w-full hover:bg-gray-100 focus:ring-3 transition-colors`
                         }
                       >
-                        <NextImage
-                          media={bankIcon.icon}
-                          className="w-full h-full rounded-lg"
-                          unoptimized
-                        />
+                        <NextImage media={bankIcon.icon} className="w-full h-full rounded-lg" unoptimized />
                       </RadioGroup.Option>
                     ))}
                   </div>
                 </RadioGroup>
                 {data.banks
-                  .filter(
-                    (bankIcon) =>
-                      bankIcon.instructions && bank === bankIcon.name
-                  )
+                  .filter((bankIcon) => bankIcon.instructions && bank === bankIcon.name)
                   .map((bankIcon) => (
-                    <div
-                      key="bankIcon.name"
-                      className="prose prose-sm text-primary-900"
-                    >
+                    <div key="bankIcon.name" className="prose prose-sm text-primary-900">
                       <Markdown>{bankIcon.instructions}</Markdown>
                     </div>
                   ))}
@@ -669,16 +611,10 @@ const EstonianDonationBox = ({ data }) => {
                   stroke="currentColor"
                   strokeWidth={2}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M11 17l-5-5m0 0l5-5m-5 5h12"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
                 </svg>
               </a>
-              <h1 className="ml-4 text-3xl font-bold leading-snug">
-                {data.chooseOrganizationsText}
-              </h1>
+              <h1 className="ml-4 text-3xl font-bold leading-snug">{data.chooseOrganizationsText}</h1>
             </div>
             <div className="flex flex-col items-start mb-8 space-y-4">
               {/* <div className="">
@@ -694,9 +630,7 @@ const EstonianDonationBox = ({ data }) => {
                   type="checkbox"
                   className="w-5 h-5 rounded-md border border-gray-300 transition-colors cursor-pointer form-checkbox text-primary-700"
                   checked={!choosingProportions}
-                  onChange={(event) =>
-                    setChoosingProportions(!event.target.checked)
-                  }
+                  onChange={(event) => setChoosingProportions(!event.target.checked)}
                 />
                 <span className="ml-3">{data.letExpertsChooseText}</span>
               </label>
@@ -704,10 +638,7 @@ const EstonianDonationBox = ({ data }) => {
             <div
               id="proportionInputContainer"
               className={`flex flex-col space-y-7 mb-4 ${
-                choosingProportions
-                  ? ""
-                  : "opacity-25 cursor-default pointer-events-none select-none"
-              }`}
+                choosingProportions ? "":"opacity-25 cursor-default pointer-events-none select-none"}`}
             >
               {organizations.map((organization, i) => (
                 <div key={organization.name} className="flex flex-col">
@@ -744,9 +675,7 @@ const EstonianDonationBox = ({ data }) => {
                       <div
                         className="absolute my-auto w-1/2 h-2.5 rounded-full opacity-25 bg-primary-600"
                         style={{
-                          width: `${
-                            proportions[organization.name].proportion
-                          }%`,
+                          width: `${proportions[organization.name].proportion}%`,
                         }}
                       ></div>
                       <input
@@ -754,21 +683,14 @@ const EstonianDonationBox = ({ data }) => {
                         type="range"
                         min="0"
                         max="100"
-                        onInput={(event) =>
-                          setCalculatedProportions(
-                            organization.name,
-                            event.target.value
-                          )
-                        }
+                        onInput={(event) => setCalculatedProportions(organization.name, event.target.value)}
                         onMouseUp={() => lockProportion(organization.name)}
                         value={proportions[organization.name].proportion}
                       />
                     </div>
                     <div
                       className={`w-16 text-lg font-bold text-center ${
-                        proportions[organization.name].proportion == 0
-                          ? "opacity-25"
-                          : ""
+                        proportions[organization.name].proportion == 0 ? "opacity-25" : ""
                       }`}
                     >
                       {proportions[organization.name].proportion}%

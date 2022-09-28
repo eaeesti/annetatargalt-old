@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_sections_contact_sections",
+  "info": {
+    "name": "ContactSection",
+    "icon": "address-book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "getInTouchText": {
+      "type": "string"
+    },
+    "getInTouchDescriptionText": {
+      "type": "text"
+    },
+    "contactEmailText": {
+      "type": "string"
+    },
+    "nameBoxPlaceholder": {
+      "type": "string"
+    },
+    "emailBoxPlaceholder": {
+      "type": "string"
+    },
+    "messageBoxPlaceholder": {
+      "type": "string"
+    },
+    "successText": {
+      "type": "string"
+    },
+    "submitButtonText": {
+      "type": "string"
+    },
+    "successTitleText": {
+      "type": "string"
+    }
+  }
+}

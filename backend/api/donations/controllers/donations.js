@@ -83,9 +83,14 @@ module.exports = {
       model: strapi.models.donations,
     });
 
+    const emailsData = sanitizeEntity(await strapi.query("emails").findOne(), {
+      model: strapi.models["emails"],
+    });
+
     await strapi.plugins["email"].services.email.sendTemplatedEmail(
       {
         to: donation.email,
+        replyTo: emailsData.automatedEmailsReplyToAddress,
       },
       template,
       sanitizedDonation

@@ -1,7 +1,7 @@
 import React from "react";
 import Markdown from "react-markdown";
 import { Disclosure, Transition } from "@headlessui/react";
-import { ChevronUpIcon } from "@heroicons/react/solid";
+import { ChevronUpIcon } from "@heroicons/react/24/solid";
 
 const DisclosureGroup = ({ data }) => {
   return (
@@ -17,8 +17,7 @@ const DisclosureGroup = ({ data }) => {
                     <div className="flex flex-col justify-center">
                       <ChevronUpIcon
                         className={
-                          `${open ? "transform rotate-180" : ""}` +
-                          " w-6 h-6 transition-transform duration-300"
+                          `${open ? "transform rotate-180" : ""}` + " w-6 h-6 transition-transform duration-300"
                         }
                       />
                     </div>
