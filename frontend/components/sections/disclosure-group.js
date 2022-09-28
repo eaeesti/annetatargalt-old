@@ -17,7 +17,8 @@ const DisclosureGroup = ({ data }) => {
                     <div className="flex flex-col justify-center">
                       <ChevronUpIcon
                         className={
-                          `${open ? "transform rotate-180" : ""}` + " w-6 h-6 transition-transform duration-300"
+                          `${open ? "transform rotate-180" : ""}` +
+                          " w-6 h-6 transition-transform duration-300"
                         }
                       />
                     </div>

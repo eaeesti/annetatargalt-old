@@ -47,13 +47,18 @@ const SectionTemplate = ({ data }) => {
         <div className="relative mx-auto max-w-7xl lg:grid lg:grid-cols-5">
           <div className="px-4 pt-16 pb-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12">
             <div className="mx-auto max-w-lg">
-              <h2 className="text-2xl font-bold tracking-tight sm:text-3xl text-primary-700">{data.getInTouchText}</h2>
+              <h2 className="text-2xl font-bold tracking-tight sm:text-3xl text-primary-700">
+                {data.getInTouchText}
+              </h2>
               <p className="mt-3 text-lg">{data.getInTouchDescriptionText}</p>
               <dl className="mt-8 text-base">
                 <div className="mt-3">
                   <dt className="sr-only">Email</dt>
                   <dd className="flex">
-                    <EnvelopeIcon className="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+                    <EnvelopeIcon
+                      className="flex-shrink-0 w-6 h-6"
+                      aria-hidden="true"
+                    />
                     <span className="ml-3">{data.contactEmailText}</span>
                   </dd>
                 </div>
@@ -112,7 +117,10 @@ const SectionTemplate = ({ data }) => {
                   <textarea
                     id="message"
                     name="message"
-                    rows={Math.max(4, Math.round(message.split(/\r\n|\r|\n/).length))}
+                    rows={Math.max(
+                      4,
+                      Math.round(message.split(/\r\n|\r|\n/).length)
+                    )}
                     className="p-3 w-full rounded-lg border border-gray-300 transition-colors focus:ring-1 focus:ring-primary-700 focus:border-primary-700"
                     placeholder={data.messageBoxPlaceholder}
                     onInput={(event) => setMessage(event.target.value)}
