@@ -21,7 +21,6 @@ const SectionTemplate = ({ data }) => {
     setLoading(true);
 
     try {
-      console.log("Sending request with data:", body);
       const response = await fetchAPI("/contact-submissions", {
         method: "POST",
         body: JSON.stringify(body),
