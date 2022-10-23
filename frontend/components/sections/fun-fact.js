@@ -5,7 +5,7 @@ const FunFact = ({ data }) => {
     <div className="text-gray-600 bg-gray-100">
       <div className="container py-32 text-center">
         <div className="text-2xl">{data.toptext}</div>
-        <div className="py-12 text-8xl font-bold text-primary-700">
+        <div className="py-12 text-8xl font-bold tracking-tight text-primary-700">
           {data.bigtext}
         </div>
         <div className="pb-12 text-2xl">{data.bottomtext}</div>

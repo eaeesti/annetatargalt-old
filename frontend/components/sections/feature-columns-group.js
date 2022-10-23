@@ -4,7 +4,9 @@ const FeatureColumnsGroup = ({ data }) => {
   return (
     <div className="bg-white">
       <div className="container flex flex-col items-center py-32 text-center">
-        <div className="text-4xl font-bold text-primary-700">{data.title}</div>
+        <div className="text-4xl font-bold tracking-tight text-primary-700">
+          {data.title}
+        </div>
         <div className="mt-12 max-w-2xl text-lg">{data.description}</div>
         <div className="grid grid-cols-1 gap-x-8 gap-y-24 mt-36 align-top sm:grid-cols-2 xl:grid-cols-4">
           {data.features.map((feature) => (

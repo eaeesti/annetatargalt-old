@@ -77,7 +77,7 @@ const ThankYouHeader = ({ data }) => {
               />
             </svg>
             {data.title && (
-              <div className="text-2xl font-bold md:text-4xl sm:text-3xl">
+              <div className="text-2xl font-bold tracking-tight md:text-4xl sm:text-3xl">
                 {string.format(data.title, donation)}
               </div>
             )}
@@ -111,7 +111,7 @@ const ThankYouHeader = ({ data }) => {
           </div>
           <div className="flex flex-col items-stretch space-y-8">
             {data.message2 && (
-              <div className="m-auto max-w-full text-white prose prose-2xl prose-header">
+              <div className="m-auto max-w-full tracking-tight text-white prose prose-2xl prose-header">
                 <Markdown>{string.format(data.message2, donation)}</Markdown>
               </div>
             )}

@@ -110,7 +110,7 @@ const SectionTemplate = ({ data }) => {
                   <label htmlFor="message" className="sr-only">
                     {data.messageBoxPlaceholder}
                   </label>
-                  <div className="absolute top-1 right-1 text-xs text-gray-400 pointer-events-none select-none">
+                  <div className="absolute top-1 right-1 text-xs text-gray-600 pointer-events-none select-none">
                     {message.length}/500
                   </div>
                   <textarea

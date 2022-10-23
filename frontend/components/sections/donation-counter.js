@@ -72,7 +72,7 @@ const DonationCounter = ({ data }) => {
           className="flex flex-col items-center m-auto text-2xl lg:flex-row lg:items-end"
         >
           {data.textBefore && <span> {data.textBefore}</span>}
-          <span className="block mx-0 my-5 text-5xl font-bold lg:mx-3 lg:my-0 text-primary-700">
+          <span className="block mx-0 my-5 text-5xl font-bold tracking-tight lg:mx-3 lg:my-0 text-primary-700">
             {formatEstonianNumber(currentTotal.toFixed(2))}
             {data.currency}
           </span>

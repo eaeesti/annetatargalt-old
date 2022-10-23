@@ -17,7 +17,7 @@ const EstonianHero = ({ data }) => {
       <div className="container pt-40 pb-40 lg:pb-0">
         <div className="flex flex-col items-center space-x-0 space-y-20 lg:space-y-0 lg:space-x-20 lg:flex-row lg:items-start">
           <div className="py-0 w-full text-center lg:py-40 lg:w-3/5 lg:text-left">
-            <h1 className="mb-8 text-5xl font-bold leading-tight">
+            <h1 className="mb-8 text-5xl font-bold tracking-tight">
               {data.title}
             </h1>
             <p className="text-2xl leading-normal">{data.subtitle}</p>

@@ -51,7 +51,7 @@ const FeatureRowsGroup = ({ data }) => {
             </div>
             {/* Text section */}
             <div className="w-full text-lg lg:w-5/6">
-              <h1 className="text-2xl font-bold text-primary-700">
+              <h1 className="text-2xl font-bold tracking-tight text-primary-700">
                 {feature.title}
               </h1>
               <div className="my-6 text-gray-600 prose prose-lg">
