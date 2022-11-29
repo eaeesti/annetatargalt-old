@@ -12,7 +12,7 @@ const FeatureRowsGroup = ({ data }) => {
           <div
             className={classNames(
               // Common classes
-              "flex flex-col justify-start items-center md:justify-between space-y-16 lg:space-y-0 bg-gray-100 p-12 sm:p-24 sm:rounded-2xl",
+              "flex flex-col justify-start items-center md:justify-between space-y-16 lg:space-y-0 bg-slate-100 p-12 sm:p-24 sm:rounded-2xl",
               {
                 "lg:flex-row lg:ml-40 xl:ml-48": index % 2 === 0,
                 "lg:flex-row-reverse lg:mr-40 xl:mr-48": index % 2 === 1,

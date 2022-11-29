@@ -16,6 +16,7 @@ import ProgressResults from "./sections/progress-results";
 import DonationCounter from "./sections/donation-counter";
 import Organizations from "./sections/organizations";
 import ContactSection from "./sections/contact_section";
+import Team from "./sections/team";
 
 // Map Strapi sections to section components
 const sectionComponents = {
@@ -36,6 +37,7 @@ const sectionComponents = {
   "sections.donation-counter": DonationCounter,
   "sections.organizations": Organizations,
   "sections.contact-section": ContactSection,
+  "sections.team": Team,
 };
 
 // Display a section individually

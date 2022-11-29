@@ -5,14 +5,14 @@ import { ChevronUpIcon } from "@heroicons/react/24/solid";
 
 const DisclosureGroup = ({ data }) => {
   return (
-    <section className="py-8 md:bg-gray-200 md:py-16">
+    <section className="py-8 md:bg-slate-200 md:py-16">
       <div className="container flex min-h-[32rem] flex-col items-center">
         <div className="flex flex-col space-y-8 w-full bg-white md:w-auto md:p-8 md:rounded-2xl">
           {data.disclosures.map((disclosure) => (
             <Disclosure key={disclosure.id}>
               {({ open }) => (
                 <>
-                  <Disclosure.Button className="flex flex-row justify-between p-3 space-x-2 w-full max-w-full md:max-w-prose min-w-full md:min-w-[65ch] text-left rounded-t-lg border-b hover:bg-gray-100">
+                  <Disclosure.Button className="flex flex-row justify-between p-3 space-x-2 w-full max-w-full md:max-w-prose min-w-full md:min-w-[65ch] text-left rounded-t-lg border-b hover:bg-slate-100">
                     <div className="text-lg font-bold">{disclosure.title}</div>
                     <div className="flex flex-col justify-center">
                       <ChevronUpIcon

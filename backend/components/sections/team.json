@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_sections_teams",
+  "info": {
+    "name": "Team",
+    "icon": "people-carry",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "teamMembers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.team-member"
+    }
+  }
+}

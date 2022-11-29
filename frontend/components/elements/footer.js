@@ -5,7 +5,7 @@ import CustomLink from "./custom-link";
 
 const Footer = ({ footer }) => {
   return (
-    <footer className="py-12 text-gray-100 bg-gray-700">
+    <footer className="py-12 text-gray-100 bg-slate-700">
       <div className="container flex flex-col lg:flex-row lg:justify-between">
         <div>
           {footer.logo && (

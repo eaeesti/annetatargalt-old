@@ -3,7 +3,7 @@ import Endorsement from "../elements/endorsement";
 
 const Endorsements = ({ data }) => {
   return (
-    <div className="bg-gray-100">
+    <div className="bg-slate-100">
       <div className="container flex flex-col py-32 space-y-16">
         <h2 className="text-4xl font-bold tracking-tight text-center text-primary-700">
           {data.title}

@@ -2,7 +2,7 @@ import Markdown from "react-markdown";
 
 const FunFact = ({ data }) => {
   return (
-    <div className="text-gray-600 bg-gray-100">
+    <div className="text-gray-600 bg-slate-100">
       <div className="container py-32 text-center">
         <div className="text-2xl">{data.toptext}</div>
         <div className="py-12 text-8xl font-bold tracking-tight text-primary-700">

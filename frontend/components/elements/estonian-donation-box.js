@@ -184,7 +184,6 @@ const EstonianDonationBox = ({ data }) => {
     // If it doesn't match, undo the input
     if (!/(^[1-9]\d{0,6}$)|(^[1-9]\d{0,6}\.\d{0,2}$)|^$/.test(newOtherAmount)) {
       newOtherAmount = otherAmountInput.dataset.value;
-      console.log("Flashing red!");
       flashRed(otherAmountInput);
     } else {
       otherAmountInput.dataset.value = newOtherAmount;
@@ -705,9 +704,7 @@ const EstonianDonationBox = ({ data }) => {
               id="proportionInputContainer"
               className={`flex flex-col space-y-7 mb-4 ${
                 choosingProportions
-                  ? ""
-                  : "opacity-25 cursor-default pointer-events-none select-none"
-              }`}
+                  ? "":"opacity-25 cursor-default pointer-events-none select-none"}`}
             >
               {organizations.map((organization, i) => (
                 <div key={organization.name} className="flex flex-col">

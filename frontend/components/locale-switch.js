@@ -110,7 +110,7 @@ const LocaleSwitch = ({ pageContext }) => {
               >
                 <p
                   onClick={() => handleLocaleChange(locale)}
-                  className="px-5 py-3 text-center lowercase rounded-md cursor-pointer hover:bg-gray-100"
+                  className="px-5 py-3 text-center lowercase rounded-md cursor-pointer hover:bg-slate-100"
                 >
                   {language}
                 </p>

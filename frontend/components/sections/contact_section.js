@@ -41,7 +41,7 @@ const SectionTemplate = ({ data }) => {
   }
 
   return (
-    <div className="bg-gray-100">
+    <div className="bg-slate-100">
       <div className="container">
         <div className="relative mx-auto max-w-7xl lg:grid lg:grid-cols-5">
           <div className="px-4 pt-16 pb-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12">
