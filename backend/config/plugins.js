@@ -14,7 +14,7 @@ module.exports = ({ env }) => ({
       sendinblue_default_from: env("SIB_DEFAULT_FROM", "info@annetatargalt.ee"),
       sendinblue_default_from_name: env(
         "SIB_DEFAULT_FROM_NAME",
-        "AnnetaTargalt"
+        "Anneta Targalt"
       ),
     },
   },
