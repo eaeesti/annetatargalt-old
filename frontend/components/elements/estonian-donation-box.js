@@ -704,7 +704,9 @@ const EstonianDonationBox = ({ data }) => {
               id="proportionInputContainer"
               className={`flex flex-col space-y-7 mb-4 ${
                 choosingProportions
-                  ? "":"opacity-25 cursor-default pointer-events-none select-none"}`}
+                  ? ""
+                  : "opacity-25 cursor-default pointer-events-none select-none"
+              }`}
             >
               {organizations.map((organization, i) => (
                 <div key={organization.name} className="flex flex-col">
