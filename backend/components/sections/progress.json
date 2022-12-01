@@ -25,6 +25,9 @@
     },
     "bottomText": {
       "type": "richtext"
+    },
+    "totalText": {
+      "type": "string"
     }
   }
 }

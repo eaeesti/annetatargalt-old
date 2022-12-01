@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Markdown from "react-markdown";
 import { fetchAPI } from "utils/api";
+import { formatEstonianNumber } from "utils/estonia";
 
 const DonationCounter = ({ data }) => {
   let [currentTotal, setCurrentTotal] = useState(0);
@@ -8,14 +9,6 @@ const DonationCounter = ({ data }) => {
 
   function round(number, decimalPlaces) {
     return Math.round(number * 10 ** decimalPlaces) / 10 ** decimalPlaces;
-  }
-
-  function formatEstonianNumber(number) {
-    const asString = String(number);
-    const [integerPart, decimalPart] = asString.split(".");
-    const integerWithSpaces = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-    const estonianNumber = integerWithSpaces + "," + decimalPart;
-    return estonianNumber;
   }
 
   function countToTotal() {

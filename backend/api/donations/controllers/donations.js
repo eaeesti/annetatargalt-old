@@ -314,12 +314,12 @@ module.exports = {
     return donations.reduce((prev, cur) => prev + cur.amount, 0);
   },
 
-  async decemberTotal() {
+  async getChristmas2022Sum() {
     let sum;
     try {
       const donationEntities = await strapi.query("donations").find({
-        created_at_gt: "2021-12-01T00:00:00Z",
-        created_at_lt: "2022-01-01T00:00:00Z",
+        created_at_gt: "2022-11-27T00:00:00Z",
+        created_at_lt: "2023-01-01T00:00:00Z",
         finalized: true,
       });
 
@@ -332,8 +332,8 @@ module.exports = {
       const manualDonationEntities = await strapi
         .query("manual-donations")
         .find({
-          created_at_gt: "2021-12-01T00:00:00Z",
-          created_at_lt: "2022-01-01T00:00:00Z",
+          datetime_gt: "2022-11-27T00:00:00Z",
+          datetime_lt: "2023-01-01T00:00:00Z",
         });
 
       const manualDonations = manualDonationEntities.map((entity) =>
@@ -346,14 +346,13 @@ module.exports = {
       sum = Math.floor(sum * 100) / 100;
     } catch (err) {
       console.error(err);
-      return { success: false, reason: err };
+      return 0;
     }
-    return { success: true, total: sum };
+    return sum;
   },
 
-  async totalDonations() {
+  async getTotalSum() {
     let sum;
-
     try {
       const donationEntities = await strapi
         .query("donations")
@@ -379,8 +378,16 @@ module.exports = {
       sum = Math.floor(sum * 100) / 100;
     } catch (err) {
       console.error(err);
-      return { success: false, reason: err };
+      return 0;
     }
-    return { success: true, total: sum };
+    return sum;
+  },
+
+  async totalDonations() {
+    return {
+      success: true,
+      total: await this.getTotalSum(),
+      christmas2022: await this.getChristmas2022Sum(),
+    };
   },
 };

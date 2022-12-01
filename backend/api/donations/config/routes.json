@@ -58,14 +58,6 @@
     },
     {
       "method": "GET",
-      "path": "/decembertotal",
-      "handler": "donations.decemberTotal",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "GET",
       "path": "/totaldonations",
       "handler": "donations.totalDonations",
       "config": {
