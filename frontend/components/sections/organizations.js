@@ -7,6 +7,7 @@ const Organizations = ({ data }) => {
     media: organization.media,
     title: organization.name,
     description: organization.description,
+    anchor: organization.code,
   }));
   return <FeatureRowsGroup data={{ features }} />;
 };

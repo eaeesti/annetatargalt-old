@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_elements_interventions",
+  "info": {
+    "name": "intervention",
+    "icon": "cat",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "default": "Sääsevõrgud"
+    },
+    "description": {
+      "type": "text",
+      "default": "Against Malaria Foundation jaotab malaariapiirkondades pestitsiididega kaetud voodivõrke, mis väga tõhusalt ennetavad malaariasse haigestumisi."
+    },
+    "charityName": {
+      "type": "string",
+      "default": "Against Malaria Foundation"
+    },
+    "charityCode": {
+      "type": "string",
+      "default": "AMF"
+    },
+    "partitiveIntervention": {
+      "type": "string",
+      "default": "sääsevõrku"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.link"
+    }
+  }
+}

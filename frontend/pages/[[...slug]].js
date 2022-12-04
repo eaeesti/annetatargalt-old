@@ -5,12 +5,20 @@ import Seo from "@/components/elements/seo";
 import { useRouter } from "next/router";
 import Layout from "@/components/layout";
 import { getLocalizedPaths } from "utils/localize";
+import { fetchEvaluations } from "utils/impact";
 
 // The file is called [[...slug]].js because we're using Next's
 // optional catch all routes feature. See the related docs:
 // https://nextjs.org/docs/routing/dynamic-routes#optional-catch-all-routes
 
-const DynamicPage = ({ sections, metadata, preview, global, pageContext }) => {
+const DynamicPage = ({
+  sections,
+  metadata,
+  preview,
+  global,
+  pageContext,
+  fetchedData,
+}) => {
   const router = useRouter();
 
   // Check if the required data was provided
@@ -28,7 +36,11 @@ const DynamicPage = ({ sections, metadata, preview, global, pageContext }) => {
       {/* Add meta tags for SEO*/}
       <Seo metadata={metadata} />
       {/* Display content sections */}
-      <Sections sections={sections} preview={preview} />
+      <Sections
+        sections={sections}
+        preview={preview}
+        fetchedData={fetchedData}
+      />
     </Layout>
   );
 };
@@ -85,6 +97,10 @@ export async function getStaticProps(context) {
 
   const localizedPaths = getLocalizedPaths(pageContext);
 
+  const fetchedData = {
+    evaluations: await fetchEvaluations(),
+  };
+
   return {
     props: {
       preview,
@@ -95,6 +111,7 @@ export async function getStaticProps(context) {
         ...pageContext,
         localizedPaths,
       },
+      fetchedData,
     },
   };
 }

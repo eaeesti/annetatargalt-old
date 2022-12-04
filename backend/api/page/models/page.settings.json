@@ -55,7 +55,8 @@
         "sections.estonian-hero",
         "sections.organizations",
         "sections.contact-section",
-        "sections.team"
+        "sections.team",
+        "sections.impact-calculator"
       ],
       "pluginOptions": {
         "i18n": {

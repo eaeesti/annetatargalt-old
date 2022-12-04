@@ -3,6 +3,7 @@ import NextImage from "../elements/image";
 import Video from "../elements/video";
 import CustomLink from "../elements/custom-link";
 import Markdown from "react-markdown";
+import { ArrowRightIcon } from "@heroicons/react/20/solid";
 
 const FeatureRowsGroup = ({ data }) => {
   return (
@@ -19,6 +20,7 @@ const FeatureRowsGroup = ({ data }) => {
               }
             )}
             key={feature.id}
+            id={feature.anchor}
           >
             {/* Media section */}
             <div
@@ -59,8 +61,9 @@ const FeatureRowsGroup = ({ data }) => {
               </div>
               {feature.link && (
                 <CustomLink link={feature.link}>
-                  <div className="text-primary-700 with-arrow hover:underline">
+                  <div className="text-primary-700 hover:underline">
                     {feature.link.text}
+                    <ArrowRightIcon className="inline mb-1 ml-2 w-5 h-5" />
                   </div>
                 </CustomLink>
               )}

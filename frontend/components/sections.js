@@ -17,6 +17,7 @@ import DonationCounter from "./sections/donation-counter";
 import Organizations from "./sections/organizations";
 import ContactSection from "./sections/contact_section";
 import Team from "./sections/team";
+import ImpactCalculator from "./sections/impact-calculator";
 
 // Map Strapi sections to section components
 const sectionComponents = {
@@ -38,10 +39,11 @@ const sectionComponents = {
   "sections.organizations": Organizations,
   "sections.contact-section": ContactSection,
   "sections.team": Team,
+  "sections.impact-calculator": ImpactCalculator,
 };
 
 // Display a section individually
-const Section = ({ sectionData }) => {
+const Section = ({ sectionData, fetchedData }) => {
   // Prepare the component
   const SectionComponent = sectionComponents[sectionData.__component];
 
@@ -50,7 +52,7 @@ const Section = ({ sectionData }) => {
   }
 
   // Display the section
-  return <SectionComponent data={sectionData} />;
+  return <SectionComponent data={sectionData} fetchedData={fetchedData} />;
 };
 
 const PreviewModeBanner = () => {
@@ -75,7 +77,7 @@ const PreviewModeBanner = () => {
 };
 
 // Display the list of sections
-const Sections = ({ sections, preview }) => {
+const Sections = ({ sections, preview, fetchedData }) => {
   return (
     <div className="flex flex-col flex-grow">
       {/* Show a banner if preview mode is on */}
@@ -85,6 +87,7 @@ const Sections = ({ sections, preview }) => {
         <Section
           sectionData={section}
           key={`${section.__component}${section.id}`}
+          fetchedData={fetchedData}
         />
       ))}
     </div>

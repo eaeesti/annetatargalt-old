@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_sections_impact_calculators",
+  "info": {
+    "name": "ImpactCalculator",
+    "icon": "air-freshener",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "donationText": {
+      "type": "string"
+    },
+    "interventions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.intervention"
+    },
+    "interventionText": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.link"
+    },
+    "anchor": {
+      "type": "string"
+    }
+  }
+}
