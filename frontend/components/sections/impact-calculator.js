@@ -121,7 +121,7 @@ const ImpactCalculator = ({ data, fetchedData }) => {
               </div>
               <div className="flex flex-col space-y-3">
                 {interventionChoice.links.concat(data.links).map((link) => (
-                  <CustomLink link={link}>
+                  <CustomLink link={link} key={link.id}>
                     <div className="text-primary-700 hover:opacity-70">
                       {link.text}
                       {link.newTab ? (
