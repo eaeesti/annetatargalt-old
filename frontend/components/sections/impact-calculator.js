@@ -4,6 +4,7 @@ import {
   ArrowTopRightOnSquareIcon,
 } from "@heroicons/react/20/solid";
 import React, { useState } from "react";
+import { formatEstonianNumber } from "utils/estonia";
 import { outputsPerDonation } from "utils/impact";
 import { round } from "utils/numbers";
 import CustomLink from "../elements/custom-link";
@@ -32,9 +33,9 @@ const ImpactCalculator = ({ data, fetchedData }) => {
   }
 
   return (
-    <div className="bg-white" id={data.anchor}>
-      <div className="container flex flex-col py-32 space-y-12">
-        <div className="text-4xl font-bold tracking-tight text-center text-primary-700">
+    <div id={data.anchor} className="bg-slate-100">
+      <div className="container flex flex-col py-40 space-y-12">
+        <div className="text-3xl font-bold tracking-tight text-center sm:text-4xl text-primary-700">
           {data.title}
         </div>
         <form
@@ -52,7 +53,7 @@ const ImpactCalculator = ({ data, fetchedData }) => {
               <input
                 id="donationAmountInput"
                 type="text"
-                className="px-4 py-3 w-full text-2xl rounded-lg border border-gray-300 focus:ring-1 focus:ring-primary-700 focus:border-primary-700"
+                className="px-4 py-3 w-full text-2xl rounded-lg border border-gray-300 focus:ring-1 focus:ring-primary-700 focus:border-primary-700 placeholder-slate-400"
                 data-value=""
                 placeholder={data.donationText}
                 value={donationAmount}
@@ -81,9 +82,9 @@ const ImpactCalculator = ({ data, fetchedData }) => {
                     `${
                       checked
                         ? "ring-primary-700 ring-2"
-                        : "ring-gray-300 ring-1"
+                        : "ring-slate-300 ring-1"
                     }
-                    p-3 text-center rounded-lg cursor-pointer select-none w-full hover:bg-gray-100 focus:ring-3 text-lg`
+                    p-3 text-center rounded-lg cursor-pointer select-none w-full hover:bg-slate-100 bg-white focus:ring-3 text-lg`
                   }
                 >
                   {intervention.name}
@@ -95,15 +96,17 @@ const ImpactCalculator = ({ data, fetchedData }) => {
         {shouldShowResults() && (
           <div className="flex flex-col items-center">
             <div className="flex flex-col space-y-8 w-full max-w-3xl">
-              <div className="flex flex-col p-8 space-y-4 text-2xl text-center rounded-2xl bg-slate-100">
+              <div className="flex flex-col p-8 space-y-4 text-2xl text-center rounded-2xl bg-slate-200">
                 <div className="text-5xl font-bold text-primary-700">
-                  {round(
-                    outputsPerDonation(
-                      fetchedData.evaluations,
-                      interventionChoice.charityCode,
-                      Number(donationAmount)
-                    ),
-                    1
+                  {formatEstonianNumber(
+                    round(
+                      outputsPerDonation(
+                        fetchedData.evaluations,
+                        interventionChoice.charityCode,
+                        Number(donationAmount)
+                      ),
+                      1
+                    )
                   )}
                 </div>
                 <div className="text-lg">

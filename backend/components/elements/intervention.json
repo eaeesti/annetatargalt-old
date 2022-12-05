@@ -13,7 +13,7 @@
     },
     "description": {
       "type": "text",
-      "default": "Against Malaria Foundation jaotab malaariapiirkondades pestitsiididega kaetud voodivõrke, mis väga tõhusalt ennetavad malaariasse haigestumisi."
+      "default": "jaotab malaariast mõjutatud piirkondades putukamürkidega kaetud voodivõrke, mis ennetavad väga tõhusalt malaariasse haigestumisi."
     },
     "charityName": {
       "type": "string",
@@ -25,7 +25,7 @@
     },
     "partitiveIntervention": {
       "type": "string",
-      "default": "sääsevõrku"
+      "default": "putukamürkidega töödeldud voodivõrku viiakse  malaariapiirkondades elavatele peredele"
     },
     "links": {
       "type": "component",

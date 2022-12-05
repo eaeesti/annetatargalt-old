@@ -61,7 +61,7 @@ const FeatureRowsGroup = ({ data }) => {
               </div>
               {feature.link && (
                 <CustomLink link={feature.link}>
-                  <div className="text-primary-700 hover:underline">
+                  <div className="text-primary-700 hover:opacity-70">
                     {feature.link.text}
                     <ArrowRightIcon className="inline mb-1 ml-2 w-5 h-5" />
                   </div>

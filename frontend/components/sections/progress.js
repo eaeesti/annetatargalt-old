@@ -76,7 +76,7 @@ const Progress = ({ data }) => {
       />
       <div
         id="progress"
-        className="container flex flex-col pt-16 pb-40 space-y-12 text-center sm:pt-32"
+        className="container flex flex-col pt-16 pb-32 space-y-12 text-center sm:pt-32"
       >
         <div className="mb-8 text-3xl font-bold sm:text-4xl md:text-5xl text-primary-700">
           {data.title}

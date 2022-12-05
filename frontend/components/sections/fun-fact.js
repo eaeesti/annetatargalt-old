@@ -1,11 +1,9 @@
-import Markdown from "react-markdown";
-
 const FunFact = ({ data }) => {
   return (
-    <div className="text-gray-600 bg-slate-100">
-      <div className="container py-32 text-center">
+    <div className="bg-primary-700 text-primary-100">
+      <div className="container flex flex-col items-center py-32 text-center">
         <div className="text-2xl">{data.toptext}</div>
-        <div className="py-12 text-8xl font-bold tracking-tight text-primary-700">
+        <div className="my-12 text-7xl font-bold tracking-tight text-white sm:text-8xl">
           {data.bigtext}
         </div>
         <div className="pb-12 text-2xl">{data.bottomtext}</div>
@@ -13,7 +11,7 @@ const FunFact = ({ data }) => {
           {data.source_prelink}{" "}
           <a
             href={data.source_link}
-            className="font-bold transition-opacity text-primary-700 hover:opacity-70"
+            className="font-bold transition-opacity text-primary-300 hover:opacity-70"
           >
             {data.source_linktext}
           </a>{" "}
