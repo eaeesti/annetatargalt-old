@@ -34,7 +34,7 @@ const ImpactCalculator = ({ data, fetchedData }) => {
 
   return (
     <div id={data.anchor} className="bg-slate-100">
-      <div className="container flex flex-col py-40 space-y-12">
+      <div className="container flex flex-col px-8 py-40 space-y-12">
         <div className="text-3xl font-bold tracking-tight text-center sm:text-4xl text-primary-700">
           {data.title}
         </div>
