@@ -68,8 +68,15 @@ const Progress = ({ data }) => {
   return (
     <div className="bg-white text-slate-600">
       <div
+        className="mt-32 w-full h-20 bg-top bg-repeat-x sm:h-24 md:h-32 lg:h-36"
+        style={{
+          backgroundImage: `url(${data.decoration.url})`,
+          backgroundSize: "auto 100%",
+        }}
+      />
+      <div
         id="progress"
-        className="container flex flex-col py-40 space-y-12 text-center"
+        className="container flex flex-col pt-16 pb-40 space-y-12 text-center sm:pt-32"
       >
         <div className="mb-8 text-3xl font-bold sm:text-4xl md:text-5xl text-primary-700">
           {data.title}
