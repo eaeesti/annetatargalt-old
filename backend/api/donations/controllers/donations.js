@@ -318,6 +318,7 @@ module.exports = {
     let sum;
     try {
       const donationEntities = await strapi.query("donations").find({
+        _limit: -1,
         created_at_gt: "2022-11-27T00:00:00Z",
         created_at_lt: "2023-01-01T00:00:00Z",
         finalized: true,
@@ -332,13 +333,14 @@ module.exports = {
       const manualDonationEntities = await strapi
         .query("manual-donations")
         .find({
+          _limit: -1,
           datetime_gt: "2022-11-27T00:00:00Z",
           datetime_lt: "2023-01-01T00:00:00Z",
         });
 
       const manualDonations = manualDonationEntities.map((entity) =>
         sanitizeEntity(entity, {
-          model: strapi.models.donations,
+          model: strapi.models["manual-donations"],
         })
       );
 
@@ -356,7 +358,7 @@ module.exports = {
     try {
       const donationEntities = await strapi
         .query("donations")
-        .find({ finalized: true });
+        .find({ _limit: -1, finalized: true });
 
       const donations = donationEntities.map((entity) =>
         sanitizeEntity(entity, {
@@ -366,11 +368,11 @@ module.exports = {
 
       const manualDonationEntities = await strapi
         .query("manual-donations")
-        .find();
+        .find({ _limit: -1 });
 
       const manualDonations = manualDonationEntities.map((entity) =>
         sanitizeEntity(entity, {
-          model: strapi.models.donations,
+          model: strapi.models["manual-donations"],
         })
       );
 
