@@ -1,9 +1,10 @@
 import NextImage2 from "../elements/image2";
+import Markdown from "react-markdown";
 
 export default function Team({ data }) {
   return (
     <div className="bg-white">
-      <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8 lg:py-24">
+      <div className="px-4 py-12 mx-auto max-w-sm sm:max-w-3xl lg:max-w-7xl sm:px-6 lg:px-8">
         <div className="space-y-12">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
             {data.title}
@@ -15,7 +16,7 @@ export default function Team({ data }) {
             {data.teamMembers.map((member) => (
               <li key={member.name}>
                 <div className="space-y-4 sm:grid sm:grid-cols-3 sm:gap-6 sm:space-y-0 lg:gap-8">
-                  <div className="h-0 aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4">
+                  <div className="h-0 aspect-w-4 aspect-h-3 sm:aspect-w-3 sm:aspect-h-4">
                     <NextImage2
                       media={member.image}
                       className="object-cover rounded-lg shadow-lg"
@@ -28,7 +29,9 @@ export default function Team({ data }) {
                         <p className="text-primary-600">{member.role}</p>
                       </div>
                       <div className="text-lg">
-                        <p className="text-gray-500">{member.bio}</p>
+                        <div className="text-slate-600 prose">
+                          <Markdown>{member.bio}</Markdown>
+                        </div>
                       </div>
                     </div>
                   </div>
