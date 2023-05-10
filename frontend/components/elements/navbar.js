@@ -39,13 +39,13 @@ const Navbar = ({ navbar, pageContext }) => {
 
     function addNavbarBackground() {
       navbar.classList.add("shadow-xl");
-      navbar.classList.add("bg-primary-700");
+      navbar.classList.add("bg-primary-800");
       navbar.classList.remove("sm:pt-8");
     }
 
     function removeNavbarBackground() {
       navbar.classList.remove("shadow-xl");
-      navbar.classList.remove("bg-primary-700");
+      navbar.classList.remove("bg-primary-800");
       navbar.classList.add("sm:pt-8");
     }
 

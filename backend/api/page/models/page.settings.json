@@ -56,7 +56,8 @@
         "sections.organizations",
         "sections.contact-section",
         "sections.team",
-        "sections.impact-calculator"
+        "sections.impact-calculator",
+        "sections.blog-posts-section"
       ],
       "pluginOptions": {
         "i18n": {

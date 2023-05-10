@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_sections_blog_posts_sections",
+  "info": {
+    "name": "BlogPostsSection",
+    "icon": "list-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "blogPosts": {
+      "collection": "blog-posts"
+    }
+  }
+}

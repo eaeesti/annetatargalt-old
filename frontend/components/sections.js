@@ -18,6 +18,7 @@ import Organizations from "./sections/organizations";
 import ContactSection from "./sections/contact_section";
 import Team from "./sections/team";
 import ImpactCalculator from "./sections/impact-calculator";
+import BlogPostsSection from "./sections/blog-posts-section";
 
 // Map Strapi sections to section components
 const sectionComponents = {
@@ -40,6 +41,7 @@ const sectionComponents = {
   "sections.contact-section": ContactSection,
   "sections.team": Team,
   "sections.impact-calculator": ImpactCalculator,
+  "sections.blog-posts-section": BlogPostsSection,
 };
 
 // Display a section individually
