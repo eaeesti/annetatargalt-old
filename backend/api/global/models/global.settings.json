@@ -78,6 +78,16 @@
           "localized": true
         }
       }
+    },
+    "blogTexts": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "layout.blog-texts"
     }
   }
 }

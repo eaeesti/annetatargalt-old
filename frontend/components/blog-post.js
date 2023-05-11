@@ -1,12 +1,12 @@
-import Header from "./sections/header";
+import BlogPostHeader from "./sections/blog-post-header";
 import RichText from "./sections/rich-text";
 
 // Display the list of sections
-const BlogPost = ({ data }) => {
+const BlogPost = ({ post, texts }) => {
   return (
     <div className="flex flex-col flex-grow">
-      <Header data={{ title: data.title }} />
-      <RichText data={{ content: data.content }} />
+      <BlogPostHeader post={post} texts={texts} />
+      <RichText data={{ content: post.content }} />
     </div>
   );
 };

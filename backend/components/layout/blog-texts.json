@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_layout_blog_texts",
+  "info": {
+    "name": "blogTexts",
+    "icon": "align-right",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "goBackToBlogPosts": {
+      "type": "string",
+      "default": "Tagasi blogipostituste juurde"
+    },
+    "shareOnFacebook": {
+      "type": "string",
+      "default": "Jaga Facebookis"
+    },
+    "blogUrlPrefix": {
+      "type": "string",
+      "default": "blogi/",
+      "required": true
+    }
+  }
+}

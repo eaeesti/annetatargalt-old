@@ -48,7 +48,7 @@ const DynamicPage = ({
     return (
       <Layout global={global} pageContext={pageContext}>
         <Seo metadata={metadata} />
-        <BlogPost data={blogPost} />
+        <BlogPost post={blogPost} texts={global.blogTexts} />
       </Layout>
     );
   }
