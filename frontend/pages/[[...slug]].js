@@ -1,11 +1,17 @@
 import ErrorPage from "next/error";
-import { getPageData, fetchAPI, getGlobalData } from "utils/api";
+import {
+  getPageData,
+  fetchAPI,
+  getGlobalData,
+  getBlogPostData,
+} from "utils/api";
 import Sections from "@/components/sections";
 import Seo from "@/components/elements/seo";
 import { useRouter } from "next/router";
 import Layout from "@/components/layout";
 import { getLocalizedPaths } from "utils/localize";
 import { fetchEvaluations } from "utils/impact";
+import BlogPost from "@/components/blog-post";
 
 // The file is called [[...slug]].js because we're using Next's
 // optional catch all routes feature. See the related docs:
@@ -13,6 +19,7 @@ import { fetchEvaluations } from "utils/impact";
 
 const DynamicPage = ({
   sections,
+  blogPost,
   metadata,
   preview,
   global,
@@ -22,8 +29,28 @@ const DynamicPage = ({
   const router = useRouter();
 
   // Check if the required data was provided
-  if (!router.isFallback && !sections?.length) {
-    return <ErrorPage statusCode={404} />;
+  if (sections?.length) {
+    return (
+      <Layout global={global} pageContext={pageContext}>
+        {/* Add meta tags for SEO*/}
+        <Seo metadata={metadata} />
+        {/* Display content sections */}
+        <Sections
+          sections={sections}
+          preview={preview}
+          fetchedData={fetchedData}
+        />
+      </Layout>
+    );
+  }
+
+  if (blogPost) {
+    return (
+      <Layout global={global} pageContext={pageContext}>
+        <Seo metadata={metadata} />
+        <BlogPost data={blogPost} />
+      </Layout>
+    );
   }
 
   // Loading screen (only possible in preview mode)
@@ -31,18 +58,7 @@ const DynamicPage = ({
     return <div className="container">Loading...</div>;
   }
 
-  return (
-    <Layout global={global} pageContext={pageContext}>
-      {/* Add meta tags for SEO*/}
-      <Seo metadata={metadata} />
-      {/* Display content sections */}
-      <Sections
-        sections={sections}
-        preview={preview}
-        fetchedData={fetchedData}
-      />
-    </Layout>
-  );
+  return <ErrorPage statusCode={404} />;
 };
 
 export async function getStaticPaths(context) {
@@ -54,7 +70,7 @@ export async function getStaticPaths(context) {
 
   const pages = await (await Promise.all(allPages)).flat();
 
-  const paths = pages.map((page) => {
+  const pagePaths = pages.map((page) => {
     // Decompose the slug that was saved in Strapi
     const slugArray = !page.slug ? false : page.slug.split("/");
 
@@ -65,6 +81,25 @@ export async function getStaticPaths(context) {
     };
   });
 
+  // TODO: Do this nicer
+  const allBlogPosts = context.locales.map(async (locale) => {
+    const localeBlogPosts = await fetchAPI(`/blog-posts?_locale=${locale}`);
+    return localeBlogPosts;
+  });
+
+  const blogPosts = await (await Promise.all(allBlogPosts)).flat();
+
+  const blogPostPaths = blogPosts.map((blogPost) => {
+    const slugArray = ["blogi", blogPost.slug];
+
+    return {
+      params: { slug: slugArray },
+      locale: blogPost.locale,
+    };
+  });
+
+  const paths = pagePaths.concat(blogPostPaths);
+
   return { paths, fallback: true };
 }
 
@@ -72,6 +107,43 @@ export async function getStaticProps(context) {
   const { params, locale, locales, defaultLocale, preview = null } = context;
 
   const globalLocale = await getGlobalData(locale);
+
+  // TODO: Do this nicer
+  if (params.slug?.length > 1 && params.slug[0] == "blogi") {
+    const blogPostData = await getBlogPostData(
+      { slug: params.slug },
+      locale,
+      preview
+    );
+    const metadata = {
+      metaTitle: blogPostData.title,
+      metaDescription: blogPostData.preview,
+      twitterCardType: "summary",
+      twitterUsername: null,
+      shareImage: blogPostData.image,
+    };
+    const blogPostContext = {
+      locale: blogPostData.locale,
+      locales,
+      defaultLocale,
+      slug: blogPostData.slug,
+      localizations: blogPostData.localizations,
+    };
+    const localizedPaths = getLocalizedPaths(blogPostContext);
+    return {
+      props: {
+        preview,
+        metadata,
+        blogPost: blogPostData,
+        global: globalLocale,
+        pageContext: {
+          ...blogPostContext,
+          localizedPaths,
+        },
+      },
+    };
+  }
+
   // Fetch pages. Include drafts if preview mode is on
   const pageData = await getPageData(
     { slug: !params.slug ? [""] : params.slug },

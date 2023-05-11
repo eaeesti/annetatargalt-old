@@ -3,7 +3,7 @@ import Markdown from "react-markdown";
 
 const RichText = ({ data }) => {
   return (
-    <div className="container py-12 text-gray-600 prose prose-lg">
+    <div className="container py-12 text-slate-600 prose prose-lg">
       <Markdown>{data.content}</Markdown>
     </div>
   );
