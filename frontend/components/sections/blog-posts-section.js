@@ -1,6 +1,7 @@
 import React from "react";
 import NextImage from "../elements/image";
 import NextImage2 from "../elements/image2";
+import Link from "next/link";
 
 const BlogPostsSection = ({ fetchedData }) => {
   const blogUrlPrefix = "blogi/";
@@ -35,10 +36,12 @@ const BlogPostsSection = ({ fetchedData }) => {
                   </time>
                 </div>
                 <h3 className="mt-3 text-xl font-bold leading-8 text-white">
-                  <a href={blogUrlPrefix + post.slug}>
-                    <span className="absolute inset-0 z-50" />
-                    {post.title}
-                  </a>
+                  <Link href="/[[...slug]]" as={blogUrlPrefix + post.slug}>
+                    <a>
+                      <span className="absolute inset-0 z-50" />
+                      {post.title}
+                    </a>
+                  </Link>
                 </h3>
               </div>
             </article>
