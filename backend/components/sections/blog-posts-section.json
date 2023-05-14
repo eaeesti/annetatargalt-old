@@ -6,12 +6,5 @@
     "description": ""
   },
   "options": {},
-  "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "blogPosts": {
-      "collection": "blog-posts"
-    }
-  }
+  "attributes": {}
 }

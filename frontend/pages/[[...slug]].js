@@ -4,6 +4,7 @@ import {
   fetchAPI,
   getGlobalData,
   getBlogPostData,
+  getAllBlogPosts,
 } from "utils/api";
 import Sections from "@/components/sections";
 import Seo from "@/components/elements/seo";
@@ -171,6 +172,7 @@ export async function getStaticProps(context) {
 
   const fetchedData = {
     evaluations: await fetchEvaluations(),
+    blogPosts: await getAllBlogPosts(locale, preview),
   };
 
   return {

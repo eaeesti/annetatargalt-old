@@ -71,3 +71,11 @@ export async function getBlogPostData(params, locale, preview) {
 
   return blogPostsData[0];
 }
+
+export async function getAllBlogPosts(locale, preview) {
+  return await fetchAPI(
+    `/blog-posts?_locale=${locale}&_sort=date:DESC&status=published${
+      preview ? "&status=draft" : ""
+    }`
+  );
+}
