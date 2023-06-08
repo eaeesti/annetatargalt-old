@@ -24,7 +24,19 @@ const BlogPostHeader = ({ post, texts }) => {
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
           {post.title}
         </h1>
-        <div className="text-xl md:text-2xl text-slate-300">
+        <div className="flex space-x-3 text-xl italic md:text-2xl text-slate-300">
+          {post.author && (
+            <>
+              <address>
+                {post.author}
+                {post.authorRole && <>, {post.authorRole}</>}
+              </address>
+              {post.author && (
+                <span className="pointer-events-none select-none">•</span>
+              )}
+            </>
+          )}
+
           <time dateTime={post.date}>
             {new Date(post.date).toLocaleDateString("et-EE", {
               year: "numeric",
