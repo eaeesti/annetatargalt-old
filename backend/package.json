@@ -39,7 +39,7 @@
     "starter": "https://github.com/strapi/strapi-starter-next-corporate"
   },
   "engines": {
-    "node": ">=10.16.0 <=14.x.x",
+    "node": ">=18.x",
     "npm": "^6.0.0"
   },
   "license": "MIT"
